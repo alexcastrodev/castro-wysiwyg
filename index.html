@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="assets/main.css">
+        <link rel="stylesheet" href="assets/plugins/fontStyle.css">
+    </head>
+    <body>
+        <div id="edit-block" style="max-width: 800px;">
+            <div id="ce-wrapper">
+                <div class="ce-panel">
+                    <div class="ce-settings">
+                        <div class="ce-icon">
+                            <div class="ce-icon-font"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ce-panel-items">
+                    <div class="ce-settings">
+                        <button class="ce-icon">
+                            <div id="ce-icon-font-bold"></div>
+                        </button>
+                    </div>
+                </div>
+                <div class="ce-editable">
+                    <div id="ce-editable-content" contenteditable="true"></div>
+                </div>
+                <div class="ce-panel"></div>
+            </div>
+        </div>
+        
+        <script type="module" src="src/main.js"></script>
+        <script type="module">
+            window.castroEditor('edit-block');
+        </script>
+    </body>
+</html>

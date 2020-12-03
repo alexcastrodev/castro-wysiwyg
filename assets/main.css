@@ -1,0 +1,74 @@
+:root {
+    --ce-primary: #f3f8f9;
+    --ce-secondary: #13c4a3;
+    --ce-dark: #163b5c;
+    --ce-gray: #dddcdc;
+    --ce-white: #ffffff;
+    --ce-text: #0b3556;
+    --ce-border-radius: 6px;
+    --ce-spacing-sm: 4px;
+    --ce-spacing-md: 8px;
+    --ce-spacing-lg: 16px;
+}
+
+#ce-wrapper {
+    width: 100%;
+    border: 1px solid var(--ce-dark);
+    border-radius: var(--ce-border-radius);
+    display: flex;
+    flex-direction: column;
+}
+
+#ce-wrapper .ce-panel {
+    background-color: var(--ce-dark);
+}
+
+#ce-wrapper .ce-panel-items {
+    background-color: var(--ce-primary);
+}
+
+#ce-wrapper .ce-panel-items,
+#ce-wrapper .ce-panel {
+    min-height: 50px;
+    max-height: 50px;
+    width: 100%;
+    display: flex;
+    flex: 1;
+}
+
+#ce-wrapper .ce-editable {
+    width: 100%;
+    background-color: var(--ce-white);
+    display: flex;
+}
+
+#ce-wrapper .ce-editable > div {
+    margin: var(--ce-spacing-lg);
+}
+
+
+.ce-settings {
+    width: 100%;
+    margin: 8px;
+}
+
+
+#ce-wrapper .ce-icon {
+    background-color: #fff;
+    width: 30px;
+    height: 30px;
+    padding: 4px;
+    border-radius: 4px;
+    cursor: pointer;
+    outline: none;
+    border: none;
+}
+
+
+.ce-editable div {
+    width: 90%;
+    min-width: 9%;
+    height: 200px;
+    outline: none;
+    border: none;
+}
