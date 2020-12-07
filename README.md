@@ -26,6 +26,8 @@ Fala galera!
 Eu vou continuar desenvolvendo ele, e espero manter a mesma estrutura de que todos buttons de ação, seja totalmente isolado, como se fosse um plugin. <br>
 Estou 100% aberto para alterações e melhorias. Você pode abrir uma issue, ou me chama no <a href="https://alexandrocastro.dev.br/">meu site pessoal</a>
 </p>
+
 ## Como usar
 
 Por enquanto, só abrir o index.html :)
+<img src="https://github.com/AlexcastroDev/castro-wysiwyg/blob/main/editor.png" >
