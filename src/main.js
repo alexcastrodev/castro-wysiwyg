@@ -1,14 +1,8 @@
-'use strict'
-import castroEditor from './plugins/castroEditor.js'
-import { bold } from './plugins/fontStyle.js'
+"use strict";
+import castroEditor from "./core/setup.js";
 
-const initCastroEditor = (elementId) => {
-    castroEditor(document.getElementById(elementId));
-    createListeners()
-}
-
-function createListeners() {
-    bold();
-}
+const initCastroEditor = (elementId, settings) => {
+    castroEditor(document.getElementById(elementId), settings);
+};
 
 window.castroEditor = initCastroEditor;
