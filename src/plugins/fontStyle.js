@@ -1,14 +1,13 @@
 "use strict";
 import * as Helpers from "./../core/helpers.js";
 
-const AVAILABLE_FUNCTIONS = ["bold"];
-
 /**
  *
  * @param {array} context
  */
 export default function (context) {
     context.forEach((functionName) => {
+        createMainListener();
         functionName = functionName.toLowerCase();
         try {
             eval(functionName)();
@@ -18,31 +17,28 @@ export default function (context) {
     });
 }
 
-/**
- * Bold
- */
-
-const bold = () => {
-    let el = document.getElementById("ce-settings-wrapper");
-    let el2 = document.getElementById("ce-sub-settings-wrapper");
-
-    if (document.getElementById("ce-s-fontStyle") == null) {
-        el.innerHTML =
-            el.innerHTML +
-            `<div class="ce-icon" id="ce-s-fontStyle">
-            <div class="ce-icon-font"></div>
-        </div>`;
-    }
-
-    el2.innerHTML =
-        el2.innerHTML +
-        ` <button class="ce-icon" id="ce-s-fontStyle-bold">
-            <div class="ce-icon-font-bold"></div>
-        </button>`;
-
+const createMainListener = () => {
+    const el = document.getElementById("ce-settings-wrapper");
     const instructions = () => {
         window.castroEditorStore.current_setting = "fontStyle";
+        Object.values(el.getElementsByClassName("ce-icon")).forEach(
+            (element) => {
+                element.id == "ce-s-fontStyle"
+                    ? element.classList.add("ce-icon-active")
+                    : element.classList.remove("ce-icon-active");
+            }
+        );
     };
+
+    if (document.getElementById("ce-s-fontStyle") != null) {
+        return;
+    }
+
+    el.innerHTML =
+        el.innerHTML +
+        `<div class="ce-icon" id="ce-s-fontStyle">
+        <i class="ce-icon-dark icon-fontstyle"></i>
+    </div>`;
 
     Helpers.addClickEvents(
         {
@@ -52,24 +48,54 @@ const bold = () => {
         },
         true
     );
+};
 
-    const instructionsBold = () => {
+/**
+ * Bold
+ */
+
+const bold = () => {
+    let element = document.getElementById("ce-sub-settings-wrapper");
+
+    element.innerHTML =
+        element.innerHTML +
+        ` <button class="ce-icon" id="ce-s-fontStyle-bold">
+            <div class="ce-icon-dark icon-bold"></div>
+        </button>`;
+
+    const instructions = () => {
         document.getElementById("ce-editable-content").focus();
-
-        let range = window.getSelection().getRangeAt(0);
-        if (range != null) {
-            window.getSelection().addRange(range);
-        }
         document.execCommand("bold");
     };
 
     Helpers.addClickEvents({
         id: "ce-s-fontStyle-bold",
         origin: "fontStyle",
-        instructions: instructionsBold,
+        instructions: instructions,
     });
 };
 
 /**
  * Italic
  */
+
+const italic = () => {
+    let el = document.getElementById("ce-sub-settings-wrapper");
+
+    el.innerHTML =
+        el.innerHTML +
+        ` <button class="ce-icon" id="ce-s-fontStyle-italic">
+            <div class="ce-icon-dark icon-italic"></div>
+        </button>`;
+
+    const instructions = () => {
+        document.getElementById("ce-editable-content").focus();
+        document.execCommand("italic");
+    };
+
+    Helpers.addClickEvents({
+        id: "ce-s-fontStyle-italic",
+        origin: "fontStyle",
+        instructions: instructions,
+    });
+};
