@@ -6,6 +6,10 @@
 
 Fala galera!
 
+## Documentação
+
+https://github.com/AlexcastroDev/castro-wysiwyg/wiki
+
 # Desafio
 
 <p>Construir um Editor WSYIWYG com funcionalidade de editar texto</p>
