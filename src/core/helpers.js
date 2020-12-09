@@ -18,8 +18,6 @@ const toggleSubmenu = () => {
  * @param {Boolean} isMain
  */
 export function addClickEvents({ id, origin, instructions }, isMain = false) {
-    console.log("teste", id);
-    console.log(document.getElementById(id));
     document.getElementById(id).addEventListener("click", function () {
         if (
             (window.castroEditorStore.current_setting == origin && isMain) ||
