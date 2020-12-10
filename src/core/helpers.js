@@ -15,6 +15,7 @@ const toggleSubmenu = () => {
 /**
  *
  * @param {Function} instructions
+ * @param {Boolean} isMain
  */
 export function addClickEvents({ id, origin, instructions }, isMain = false) {
     document.getElementById(id).addEventListener("click", function () {
@@ -24,6 +25,7 @@ export function addClickEvents({ id, origin, instructions }, isMain = false) {
         ) {
             window.castroEditorStore.model = !window.castroEditorStore.model;
         }
+
         instructions();
         toggleSubmenu();
     });
