@@ -1,5 +1,6 @@
 "use strict";
 import fontStyle from "./../plugins/fontStyle.js";
+import colors from "./../plugins/colors.js";
 
 function castroEditor(element, context) {
     try {
@@ -48,6 +49,7 @@ function counter() {
 
 function installPlugins({ plugins }) {
     fontStyle(plugins.fontStyle || []);
+    colors(plugins.colors || []);
 }
 
 export default castroEditor;

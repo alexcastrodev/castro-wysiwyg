@@ -13,7 +13,7 @@ export default function (context) {
         try {
             eval(functionName)();
         } catch (e) {
-            throw `The plugin FontStyle "${functionName}" is not available \n ${e} \n Documentation: Not available yet`;
+            throw `The plugin FontStyle "${functionName}" is not available \n ${e} \n Documentation: https://github.com/AlexcastroDev/castro-wysiwyg/wiki`;
         }
     });
 }

@@ -113,8 +113,13 @@ p {
     height: 50px;
     display: flex;
     animation: fadeIn 420ms ease-in-out;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.ce-panel-items__active .sub-settings button:nth-child(n + 2) {
+    margin: 1em 1em;
 }
 
 
