@@ -7,9 +7,13 @@ function castroEditor(element, context) {
         window.castroEditorStore = {
             current_setting: "",
             model: false,
+            listeners: {},
         };
         createComponent(element);
         installPlugins(context);
+        Object.values(window.castroEditorStore.listeners).forEach((listeners) =>
+            listeners()
+        );
     } catch (e) {
         throw `[castro editor]: ${e}`;
     }
@@ -48,8 +52,9 @@ function counter() {
 }
 
 function installPlugins({ plugins }) {
-    fontStyle(plugins.fontStyle || []);
-    colors(plugins.colors || []);
+    let plugs = plugins || {};
+    fontStyle(plugs.fontStyle || []);
+    colors(plugs.colors || []);
 }
 
 export default castroEditor;
