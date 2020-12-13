@@ -71,21 +71,7 @@ const methods = [
                     id: method.id,
                     origin: method.constName,
                     instructions: () => {
-                        document.createElement("div");
-                        let colorPicker = document.createElement("div");
-                        document
-                            .getElementById("ce-sub-settings-wrapper")
-                            .appendChild(colorPicker)
-                            .classList.add("color-picker");
-                        let divsColors = ["fff", "000", "ccc", "13c4a3"]
-                            .map(
-                                (color, key) =>
-                                    `<div style='background-color: #${color}' class='color-round color-${key}'></div>`
-                            )
-                            .join("");
-                        document.getElementsByClassName(
-                            "color-picker"
-                        )[0].innerHTML += `<div id="color-picker-list">${divsColors}<input type="color" placeholder='#ffffff'></div>`;
+                        // <input value="#13c4a3" onchange="alert(this.value);" type="color" placeholder='#ffffff'></input>
                     },
                 });
         },
