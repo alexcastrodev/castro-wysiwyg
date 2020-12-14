@@ -58,22 +58,29 @@ const methods = [
         icon: "icon-paint-bucket",
         constName: "textcolor",
         origin: "colors",
-        documentBuilder: (method) => {
+        documentBuilder: ({ id, origin, icon }) => {
             let el = document.getElementById("ce-sub-settings-wrapper");
-
             el.innerHTML =
                 el.innerHTML +
-                Helpers.createButtonIcon(method.origin, method.id, method.icon);
+                `<button onclick="document.getElementById('text-color-picker').click()" data-segment="${origin}" class="ce-icon" id="${id}">
+                <div class="ce-icon-dark ${icon}">
+                <input style="display: none" value="#000000" id="text-color-picker" type="color" placeholder='#ffffff'></input>
+                </div>
+            </button>`;
         },
-        documentEvent: (method) => {
-            window.castroEditorStore.listeners[method.constName] = () =>
-                Helpers.addClickEvents({
-                    id: method.id,
-                    origin: method.constName,
-                    instructions: () => {
-                        // <input value="#13c4a3" onchange="alert(this.value);" type="color" placeholder='#ffffff'></input>
-                    },
-                });
+        documentEvent: ({ constName }) => {
+            window.castroEditorStore.listeners[constName] = () =>
+                document
+                    .getElementById("text-color-picker")
+                    .addEventListener("change", (color) => {
+                        document.getElementById("ce-editable-content").focus();
+                        document.execCommand("styleWithCSS", false, true);
+                        document.execCommand(
+                            "foreColor",
+                            false,
+                            color.target.value
+                        );
+                    });
         },
     },
     {
@@ -81,27 +88,28 @@ const methods = [
         icon: "icon-background-color",
         constName: "backgroundcolor",
         origin: "colors",
-        documentBuilder: (method) => {
+        documentBuilder: ({ id, origin, icon }) => {
             let el = document.getElementById("ce-sub-settings-wrapper");
-
             el.innerHTML =
                 el.innerHTML +
-                Helpers.createButtonIcon(method.origin, method.id, method.icon);
+                `<button onclick="document.getElementById('background-color-picker').click()" data-segment="${origin}" class="ce-icon" id="${id}">
+                <div class="ce-icon-dark ${icon}">
+                <input style="display: none" value="#000000" id="background-color-picker" type="color" placeholder='#ffffff'></input>
+                </div>
+            </button>`;
         },
-        documentEvent: (method) => {
-            window.castroEditorStore.listeners[method.constName] = () =>
-                Helpers.addClickEvents({
-                    id: method.id,
-                    origin: method.constName,
-                    instructions: () => {
+        documentEvent: ({ constName }) => {
+            window.castroEditorStore.listeners[constName] = () =>
+                document
+                    .getElementById("background-color-picker")
+                    .addEventListener("change", (color) => {
                         document.getElementById("ce-editable-content").focus();
                         document.execCommand(
-                            "backgroundColor",
+                            "BackColor",
                             false,
-                            "#bbbbbb"
+                            color.target.value
                         );
-                    },
-                });
+                    });
         },
     },
 ];
