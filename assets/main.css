@@ -26,6 +26,7 @@ p {
     display: flex;
     overflow: hidden;
     flex-direction: column;
+    position: relative;
 }
 
 #ce-wrapper,
@@ -65,8 +66,11 @@ p {
 .ce-settings {
     width: 100%;
     margin: 8px;
-    align-self: flex-end;
-    margin: 8px 8px 0px 8px;
+    margin: 8px 16px;
+    display: flex;
+}
+.ce-settings div:nth-child(n+2) {
+    margin: 0 8px 0 8px;
 }
 
 #ce-wrapper .ce-icon {
@@ -120,14 +124,15 @@ p {
 
 .ce-panel-items__active .sub-settings {
     opacity: 1;
-    height: 50px;
     display: flex;
     animation: fadeIn 420ms ease-in-out;
+    flex-direction: row;
+    justify-content: flex-start;
     align-items: center;
 }
 
-.ce-panel-items__active .sub-settings button:nth-child(n + 2) {
-    margin: 0 0.5rem 0 0.5rem;
+.ce-panel-items__active .sub-settings button {
+    margin: 0.1em 0.1em;
 }
 
 

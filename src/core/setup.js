@@ -1,14 +1,19 @@
 "use strict";
 import fontStyle from "./../plugins/fontStyle.js";
+import colors from "./../plugins/colors.js";
 
 function castroEditor(element, context) {
     try {
         window.castroEditorStore = {
             current_setting: "",
             model: false,
+            listeners: {},
         };
         createComponent(element);
         installPlugins(context);
+        Object.values(window.castroEditorStore.listeners).forEach((listeners) =>
+            listeners()
+        );
     } catch (e) {
         throw `[castro editor]: ${e}`;
     }
@@ -47,7 +52,9 @@ function counter() {
 }
 
 function installPlugins({ plugins }) {
-    fontStyle(plugins.fontStyle || []);
+    let plugs = plugins || {};
+    fontStyle(plugs.fontStyle || []);
+    colors(plugs.colors || []);
 }
 
 export default castroEditor;
