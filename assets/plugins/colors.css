@@ -1,0 +1,29 @@
+#color-picker-list {
+    display: flex;
+    align-items: center;
+}
+
+#color-picker-list div {
+    margin: 0px 3px !important;
+}
+
+#color-picker-list input {
+    border: none;
+    border-radius: 4px;
+    padding: 4px 8px;
+    margin-left: 1rem;
+}
+
+.color-picker {
+    width: 190px;
+    height: 100%;
+    display: flex;
+}
+
+.color-round {
+    min-width: 12px;
+    max-width: 12px;
+    min-height: 12px;
+    max-height: 12px;
+    border-radius: 50%;
+}
