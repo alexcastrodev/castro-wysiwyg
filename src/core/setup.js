@@ -1,6 +1,7 @@
 "use strict";
 import fontStyle from "./../plugins/fontStyle.js";
 import colors from "./../plugins/colors.js";
+import lists from "./../plugins/lists.js";
 
 function castroEditor(element, context) {
     try {
@@ -55,6 +56,7 @@ function installPlugins({ plugins }) {
     let plugs = plugins || {};
     fontStyle(plugs.fontStyle || []);
     colors(plugs.colors || []);
+    lists(plugs.lists || []);
 }
 
 export default castroEditor;
