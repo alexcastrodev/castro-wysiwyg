@@ -101,4 +101,35 @@ const methods = [
                 });
         },
     },
+    {
+        id: "ce-s-fontStyle-fontSize",
+        origin: "fontStyle",
+        constName: "fontsize",
+        documentBuilder: (method) => {
+            let el = document.getElementById("ce-sub-settings-wrapper");
+            el.innerHTML =
+                el.innerHTML +
+                `<div class="dropdown">
+                <button class="dropbtn">Normal
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                  <a href="#">teste</a>
+                  <a href="#">teste</a>
+                  <a href="#">teste</a>
+                </div>
+              </div>`;
+        },
+        documentEvent: (method) => {
+            // window.castroEditorStore.listeners[method.constName] = () =>
+            // Helpers.addClickEvents({
+            //     id: method.id,
+            //     origin: method.constName,
+            //     instructions: () => {
+            //         document.getElementById("ce-editable-content").focus();
+            //         document.execCommand("bold");
+            //     },
+            // });
+        },
+    },
 ];
